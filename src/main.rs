@@ -17,9 +17,9 @@ use std::time::{self, Duration};
 const NAP_TIME: Duration = time::Duration::from_secs(10);
 
 #[cfg(debug_assertions)]
-const CONFIG_PATH: &str = "./example-config/pwr-cap-rs.json";
+const CONFIG_PATH: &str = "./example-config/ryzencap.json";
 #[cfg(not(debug_assertions))]
-const CONFIG_PATH: &str = "/etc/pwr-cap-rs.json";
+const CONFIG_PATH: &str = "/etc/ryzencap.json";
 
 #[derive(Serialize, Deserialize)]
 struct QuietProfile {

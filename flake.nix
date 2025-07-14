@@ -33,8 +33,8 @@
       rustPlatform.bindgenHook
     ];
 
-    pwr-cap-rs = let
-      name = "pwr-cap-rs";
+    ryzencap = let
+      name = "ryzencap";
     in
       pkgs.rustPlatform.buildRustPackage {
         inherit buildInputs nativeBuildInputs name;
@@ -43,7 +43,7 @@
         meta.mainProgram = name;
       };
   in {
-    nixosModules.pwr-cap-rs = import ./modules self;
+    nixosModules.ryzencap = import ./modules self;
 
     formatter.${pkgs.system} = treefmt.wrapper;
 
@@ -62,8 +62,8 @@
     };
 
     packages.${pkgs.system} = {
-      inherit pwr-cap-rs;
-      default = pwr-cap-rs;
+      inherit ryzencap;
+      default = ryzencap;
     };
   };
 }

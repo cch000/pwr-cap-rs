@@ -1,4 +1,4 @@
-# pwr-cap-rs
+# ryzencap
 
 Flake that provides an easy way to tweak the power consumption of your Ryzen CPU.
 It uses a daemon to look for unintended changes to the power values (e.g., changing power profile) 
@@ -13,8 +13,8 @@ Note: for information about supported CPUs check the
 First, add it to your system flake inputs:
 
 ```nix
-pwr-cap-rs = {
-  url = "github:cch000/power-cap-rs";
+ryzencap = {
+  url = "github:cch000/ryzencap";
   inputs.nixpkgs.follows = "nixpkgs";
 };
 ```
@@ -23,11 +23,11 @@ Then, you can use it by adding somewhere in your config:
 
 ```nix
 imports = [
-  inputs.pwr-cap-rs.nixosModules.pwr-cap-rs
+  inputs.ryzencap.nixosModules.ryzencap
 ];
 
 #Example config
-services.pwr-cap-rs = {
+services.ryzencap = {
   enable = true;
   tctl_limit = 85;
   quiet = {

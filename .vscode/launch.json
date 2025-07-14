@@ -7,15 +7,15 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'pwr-cap-rs'",
+            "name": "Debug executable 'ryzencap'",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=pwr-cap-rs",
-                    "--package=pwr-cap-rs"
+                    "--bin=ryzencap",
+                    "--package=ryzencap"
                 ],
                 "filter": {
-                    "name": "pwr-cap-rs",
+                    "name": "ryzencap",
                     "kind": "bin"
                 }
             },
@@ -25,16 +25,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'pwr-cap-rs'",
+            "name": "Debug unit tests in executable 'ryzencap'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=pwr-cap-rs",
-                    "--package=pwr-cap-rs"
+                    "--bin=ryzencap",
+                    "--package=ryzencap"
                 ],
                 "filter": {
-                    "name": "pwr-cap-rs",
+                    "name": "ryzencap",
                     "kind": "bin"
                 }
             },
