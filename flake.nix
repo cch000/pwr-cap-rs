@@ -11,6 +11,7 @@
     ...
   }: let
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    inherit (pkgs.stdenv.hostPlatform) system;
 
     treefmtEval = treefmt-nix.lib.evalModule pkgs {
       projectRootFile = "flake.nix";
@@ -45,11 +46,11 @@
   in {
     nixosModules.ryzencap = import ./modules self;
 
-    formatter.${pkgs.system} = treefmt.wrapper;
+    formatter.${system} = treefmt.wrapper;
 
-    checks.${pkgs.system}.formatting = treefmt.check self;
+    checks.${system}.formatting = treefmt.check self;
 
-    devShells.${pkgs.system}.default = pkgs.mkShell {
+    devShells.${system}.default = pkgs.mkShell {
       inherit buildInputs nativeBuildInputs;
       inputsFrom = [treefmt.devShell];
       packages = with pkgs; [
@@ -61,7 +62,7 @@
       ];
     };
 
-    packages.${pkgs.system} = {
+    packages.${system} = {
       inherit ryzencap;
       default = ryzencap;
     };
